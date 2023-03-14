@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Calculator</title>
+  <script src="calculator.js"></script>
+</head>
+<body>
+<h1>Calculator</h1>
+<form id="calculator-form">
+  <label for="num1">Number 1:</label>
+  <input type="number" id="num1" name="num1"><br><br>
+  <label for="num2">Number 2:</label>
+  <input type="number" id="num2" name="num2"><br><br>
+  <button type="button" id="add-btn">Add</button>
+  <button type="button" id="subtract-btn">Subtract</button>
+  <button type="button" id="multiply-btn">Multiply</button>
+  <button type="button" id="divide-btn">Divide</button>
+</form>
+<div id="result"></div>
+<script>
+  const calculator = new Calculator(0, 0);
+
+  const form = document.getElementById('calculator-form');
+  const resultDiv = document.getElementById('result');
+
+  form.addEventListener('submit', (event) => {
+    event.preventDefault();
+  });
+
+  document.getElementById('add-btn').addEventListener('click', () => {
+    const num1 = parseInt(document.getElementById('num1').value, 10);
+    const num2 = parseInt(document.getElementById('num2').value, 10);
+    const result = calculator.add(num1, num2);
+    resultDiv.textContent = `Result: ${result}`;
+  });
+
+  document.getElementById('subtract-btn').addEventListener('click', () => {
+    const num1 = parseInt(document.getElementById('num1').value, 10);
+    const num2 = parseInt(document.getElementById('num2').value, 10);
+    const result = calculator.subtract(num1, num2);
+    resultDiv.textContent = `Result: ${result}`;
+  });
+
+  document.getElementById('multiply-btn').addEventListener('click', () => {
+    const num1 = parseInt(document.getElementById('num1').value, 10);
+    const num2 = parseInt(document.getElementById('num2').value, 10);
+    const result = calculator.multiply(num1, num2);
+    resultDiv.textContent = `Result: ${result}`;
+  });
+
+  document.getElementById('divide-btn').addEventListener('click', () => {
+    const num1 = parseInt(document.getElementById('num1').value, 10);
+    const num2 = parseInt(document.getElementById('num2').value, 10);
+    const result = calculator.divide(num1, num2);
+    resultDiv.textContent = `Result: ${result}`;
+  });
+</script>
+</body>
+</html>
